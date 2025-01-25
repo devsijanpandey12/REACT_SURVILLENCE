@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import "../Survillence.css"; // Add CSS for styling
 import { Range } from "react-range";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 const Surveillance = () => {
   const [timeRange, setTimeRange] = useState([2, 15]);
   const [confirmedRange, setConfirmedRange] = useState(null);
+  const [selectedDate, setSelectedDate] = useState(null);
 
   const STEP = 1;
   const TIME_MIN = 0;
@@ -44,6 +47,7 @@ const Surveillance = () => {
             <>
               <h3 className="sub-title">
                 People detected between {formatTime(confirmedRange[0])} - {formatTime(confirmedRange[1])}
+                on {selectedDate?.toLocaleDateString()}
               </h3>
               {filteredPeople.length > 0 ? (
                 filteredPeople.map((person) => (
@@ -59,7 +63,7 @@ const Surveillance = () => {
             </>
           ) : (
             <p className="no-data">
-              Select a time range and click confirm to view detected people.
+              Select a time range and date, then click confirm to view detected people.
             </p>
           )}
         </div>
@@ -101,10 +105,23 @@ const Surveillance = () => {
                 )}
               />
             </div>
-            <button onClick={handleConfirm} className="confirm-button">
-              Confirm Selection
-            </button>
           </div>
+          <div className="date-picker-section">
+            <h3 className="sub-title">Select Date</h3>
+            <DatePicker
+              selected={selectedDate}
+              onChange={(date) => setSelectedDate(date)}
+              dateFormat="MMMM d, yyyy"
+              className="date-picker"
+            />
+          </div>
+          <button
+            onClick={handleConfirm}
+            className="confirm-button"
+            disabled={!selectedDate}
+          >
+            Confirm Selection
+          </button>
         </div>
       </div>
     </div>
@@ -112,4 +129,3 @@ const Surveillance = () => {
 };
 
 export default Surveillance;
-

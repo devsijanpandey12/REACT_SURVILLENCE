@@ -1,7 +1,6 @@
 import React from 'react';
 import './Header.css';
 
-
 const Header = () => {
   const handleButtonClick = (feature) => {
     alert(`${feature} clicked!`);
@@ -40,12 +39,16 @@ const Header = () => {
         </button>
       </div>
       <div className="main-content">
-        <h1>Welcome to the Dashboard</h1>
-        <p>Select an option from the sidebar to proceed.</p>
+        <div className="content-wrapper">
+          <div className="text-section">
+            <h1>Welcome to the Dashboard</h1>
+            <p>Select an option from the sidebar to proceed.</p>
+          </div>
+          
+        </div>
       </div>
     </div>
   );
 };
-
 
 export default Header;

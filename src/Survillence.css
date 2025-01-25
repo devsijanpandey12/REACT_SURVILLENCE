@@ -37,7 +37,7 @@
 }
 
 .sub-title {
-  font-size: 1.1rem;
+  font-size: 1.7rem;
   font-weight: 600;
   color: #374151;
   margin-bottom: 0.75rem;
@@ -72,7 +72,7 @@
 
 /* Slider Section */
 .slider-section {
-  margin-top: 1.5rem;
+  margin-top: 5.5rem;
 }
 
 .slider-label {
@@ -169,3 +169,33 @@
       overflow-y: auto;
   }
 }
+
+
+.date-picker-section {
+  margin-top: 6rem;
+}
+
+.date-picker {
+  width: 80%;
+  padding: 0.6rem;
+  font-size: 0.9rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.3rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.date-picker:focus {
+  border-color: #2563eb;
+  box-shadow: 0px 0px 4px rgba(37, 99, 235, 0.6);
+}
+
+
+.confirm-button:disabled {
+  background-color: #9ca3af;
+  cursor: not-allowed;
+}
+
+
+
+
